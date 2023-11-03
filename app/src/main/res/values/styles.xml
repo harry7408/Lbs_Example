@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="rv_item_style">
+        <item name="android:paddingStart">@dimen/rv_item_horizontal_padding</item>
+        <item name="android:paddingEnd">@dimen/rv_item_horizontal_padding</item>
+        <item name="android:paddingTop">@dimen/rv_item_vertical_padding</item>
+        <item name="android:paddingBottom">@dimen/rv_item_vertical_padding</item>
+        <item name="android:layout_marginTop">@dimen/rv_item_vertical_margin</item>
+        <item name="android:layout_marginStart">@dimen/rv_item_horizontal_margin</item>
+    </style>
+
+</resources>
