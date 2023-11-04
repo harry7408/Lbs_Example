@@ -25,6 +25,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <service
+            android:name="com.sesac.lbshomework.LocationService"
+            android:enabled="true"
+            android:foregroundServiceType="location"
+            android:stopWithTask="true" />
     </application>
 
 </manifest>

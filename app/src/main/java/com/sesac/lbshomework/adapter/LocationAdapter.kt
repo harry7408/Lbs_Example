@@ -4,8 +4,11 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.sesac.lbshomework.databinding.ItemLocationBinding
+import com.sesac.lbshomework.model.LatLang
+import java.util.Locale
 
-class LocationAdapter : RecyclerView.Adapter<LocationAdapter.LocationViewHolder>() {
+class LocationAdapter(private val items: MutableList<LatLang>) :
+    RecyclerView.Adapter<LocationAdapter.LocationViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LocationViewHolder {
         return LocationViewHolder(
@@ -13,17 +16,26 @@ class LocationAdapter : RecyclerView.Adapter<LocationAdapter.LocationViewHolder>
         )
     }
 
-    override fun getItemCount(): Int {
-        //TODO 리스트 크기 반환
-        return 1
-    }
+    override fun getItemCount() = items.size
 
     override fun onBindViewHolder(holder: LocationViewHolder, position: Int) {
-
+        holder.bind(items[position])
     }
 
-    inner class LocationViewHolder(val binding: ItemLocationBinding) :
-        RecyclerView.ViewHolder(binding.root) {
+    fun addItem(item : LatLang) {
+        items.add(item)
+        notifyItemInserted(items.size-1)
+    }
 
+    inner class LocationViewHolder(private val binding: ItemLocationBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        fun bind(item: LatLang) {
+            with(binding) {
+                latLangTextView.text = String.format(
+                    Locale.KOREA,
+                    "${item.latitude} : ${item.longitude}"
+                )
+            }
+        }
     }
 }

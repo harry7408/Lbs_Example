@@ -19,6 +19,7 @@
 
 
     <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/latLangTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toEndOf="@id/recyclerViewTitleTextView"
@@ -26,6 +27,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         android:textSize="@dimen/rv_item_text_size"
+        android:ellipsize="end"
+        android:maxLines="1"
         style="@style/rv_item_style"
         tools:text="dddd"/>
 
